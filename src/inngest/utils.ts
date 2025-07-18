@@ -1,5 +1,5 @@
 import {Sandbox} from "@e2b/code-interpreter";
-import { AgentResult, TestMessage } from "@inngest/agent-kit";
+import { AgentResult, TextMessage } from "@inngest/agent-kit";
 import { SANDBOX_TIMEOUT } from "./types";
 
 export async function getSandbox(sandboxId: string){
@@ -13,7 +13,7 @@ export function lastAssistantTextMessageContent(result: AgentResult){
         (message)=> message.role ==="assistant",
     );
     const message = result.output[lastAssistantTextMessageIndex] as
-        | TestMessage
+        | TextMessage
         | undefined
     
     return message?.content

@@ -15,7 +15,7 @@ import{
 import { MessagesContainer } from "../components/messages-container";
 import { ProjectHeader } from "../components/project-header";
 import { FragmentWeb } from "../components/fragment-web";
-import { EyeIcon, CodeIcon, Code, CrownIcon } from "lucide-react";
+import { EyeIcon, CodeIcon, CrownIcon } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";;
 import { FileExplorer } from "@/components/file-explorer";

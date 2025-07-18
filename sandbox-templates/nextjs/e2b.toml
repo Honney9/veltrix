@@ -1,0 +1,17 @@
+# This is a config for E2B sandbox template.
+# You can use template ID (5r7ac0d5ysqe1idsvwxc) or template name (veltrix-test-2) to create a sandbox:
+
+# Python SDK
+# from e2b import Sandbox, AsyncSandbox
+# sandbox = Sandbox("veltrix-test-2") # Sync sandbox
+# sandbox = await AsyncSandbox.create("veltrix-test-2") # Async sandbox
+
+# JS SDK
+# import { Sandbox } from 'e2b'
+# const sandbox = await Sandbox.create('veltrix-test-2')
+
+team_id = "310dbbc6-f766-47a1-8f5e-7972ac809f5f"
+start_cmd = "/compile_page.sh"
+dockerfile = "e2b.Dockerfile"
+template_name = "veltrix-test-2"
+template_id = "5r7ac0d5ysqe1idsvwxc"

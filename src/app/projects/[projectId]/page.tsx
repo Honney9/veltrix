@@ -2,7 +2,6 @@ import { ProjectView } from "@/modules/projects/ui/views/project-view";
 import { getQueryClient, trpc } from "@/trpc/server";
 import { dehydrate, HydrationBoundary } from "@tanstack/react-query";
 import { Suspense } from "react";
-import { notFound } from "next/navigation"; // built-in Next.js handler
 import {ErrorBoundary} from "react-error-boundary"
 
 interface Props{
@@ -28,7 +27,7 @@ const Page=async ({params}: Props)=>{
         })
         );
     } catch (err) {
-        return notFound(); // Or show your own custom error component
+        console.error(err);
   }
 
     return (

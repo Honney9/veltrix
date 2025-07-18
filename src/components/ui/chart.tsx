@@ -26,11 +26,9 @@ const ChartContext = React.createContext<ChartContextProps | null>(null)
 
 function useChart() {
   const context = React.useContext(ChartContext)
-
   if (!context) {
     throw new Error("useChart must be used within a <ChartContainer />")
   }
-
   return context
 }
 
@@ -105,26 +103,26 @@ ${colorConfig
 const ChartTooltip = RechartsPrimitive.Tooltip
 
 type ChartTooltipContentProps = {
-  active?: boolean;
+  active?: boolean
   payload?: {
-    name?: string;
-    value?: number;
-    dataKey?: string;
-    color?: string;
-    payload?: any;
-  }[];
-  className?: string;
-  indicator?: "line" | "dot" | "dashed";
-  hideLabel?: boolean;
-  hideIndicator?: boolean;
-  label?: string | number;
-  labelFormatter?: (...args: any[]) => React.ReactNode;
-  labelClassName?: string;
-  formatter?: (...args: any[]) => React.ReactNode;
-  color?: string;
-  nameKey?: string;
-  labelKey?: string;
-};
+    name?: string
+    value?: number
+    dataKey?: string
+    color?: string
+    payload?: Record<string, unknown>
+  }[]
+  className?: string
+  indicator?: "line" | "dot" | "dashed"
+  hideLabel?: boolean
+  hideIndicator?: boolean
+  label?: string | number
+  labelFormatter?: (...args: unknown[]) => React.ReactNode
+  labelClassName?: string
+  formatter?: (...args: unknown[]) => React.ReactNode
+  color?: string
+  nameKey?: string
+  labelKey?: string
+}
 
 const ChartTooltipContent: React.FC<ChartTooltipContentProps> = ({
   active,
@@ -140,7 +138,7 @@ const ChartTooltipContent: React.FC<ChartTooltipContentProps> = ({
   color,
   nameKey,
   labelKey,
-}) =>  {
+}) => {
   const { config } = useChart()
 
   const tooltipLabel = React.useMemo(() => {
@@ -197,7 +195,7 @@ const ChartTooltipContent: React.FC<ChartTooltipContentProps> = ({
         {payload.map((item, index) => {
           const key = `${nameKey || item.name || item.dataKey || "value"}`
           const itemConfig = getPayloadConfigFromPayload(config, item, key)
-          const indicatorColor = color || item.payload.fill || item.color
+          const indicatorColor = color || item.payload?.fill || item.color
 
           return (
             <div
@@ -266,12 +264,11 @@ const ChartTooltipContent: React.FC<ChartTooltipContentProps> = ({
 const ChartLegend = RechartsPrimitive.Legend
 
 type ChartLegendContentProps = React.ComponentProps<"div"> & {
-  payload?: RechartsPrimitive.LegendProps["payload"];
-  verticalAlign?: RechartsPrimitive.LegendProps["verticalAlign"];
-  hideIcon?: boolean;
-  nameKey?: string;
-};
-
+  payload?: RechartsPrimitive.LegendProps["payload"]
+  verticalAlign?: RechartsPrimitive.LegendProps["verticalAlign"]
+  hideIcon?: boolean
+  nameKey?: string
+}
 
 const ChartLegendContent: React.FC<ChartLegendContentProps> = ({
   className,
